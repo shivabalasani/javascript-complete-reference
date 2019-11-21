@@ -1,0 +1,101 @@
+JavaScript is a dynamic, weakly typed programming language which is compiled at runtime. It can be executed as part of a webpage in a browser or directly on a machine ("host environment").
+
+JavaScript was created to make webpages more dynamic(e.g change content on a page directly from inside the browser). Originally, it was called LiveScript but due to the popularity of Java, it was renamed to JavaScript.
+
+JavaScript runs on a Host Environment either Browser-side or server side.
+JavaScript was invented to create more dynamic websites by executing in the browser.Javascript can manipulate the HTML code, CSS, send background Http request & much more.
+Google's JavaScript Engine(V8) was extracted to run JavaScript anywhere (called "Node.js"). Node.js can access the local filesystem,interact with the operating system etc. It Can't manipulate HTML or CSS
+wheras browser side Javascript can't access the local filesystem, interact with the operating system etc.
+
+In 1995 Netscape introduced LiveScript/JavaScript.
+In 1996 Microsoft released its own version for IE.
+In Late 1996 Javascript was submitted to European Computer Manufacturers Association (ECMA) International to start standardization.
+ECMAScript is implemented by Browser vendors. The most famous ECMAScript implementation is JavaScript(others would be ActionScript or Jscript). ECMSScript isn't directly used but browser vendors (Google with chorme, Mozilla with FireFox etc) implement the standard into their JS engines. Each browser comes with it own Javascript engine that also defines which features are acutally supported.
+
+
+=======================================================================================================================================================================
+Variables & Constants
+let and const. 
+
+Allowed												Not Allowed/Not Recommended
+let userName; (Best practice camelCase)				let user_name; (Allowed but bad practice)
+let ageGroup5; (Only letters and digits)			let 21Players; (Starting digits not allowed)
+let $kindOfSpecial;	(Can start with $)				let user-b; (No special characters);
+let _intervalValue;	(Can start with _)				let let; (Keywords not allowed)
+
+=======================================================================================================================================================================
+Operators
+JavaScript has the following types of operators. This section describes the operators and contains information about operator precedence.
+Assignment operators
+Comparison operators
+Arithmetic operators
+Bitwise operators
+Logical operators
+String operators
+Conditional (ternary) operator
+Comma operator
+Unary operators
+Relational operators
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+In the United States, the acronym PEMDAS is common. It stands for Parentheses, Exponents, Multiplication/Division, Addition/Subtraction. PEMDAS is often expanded to the mnemonic "Please Excuse My Dear Aunt Sally".
+Unary plus (+)	Unary operator. Attempts to convert the operand to a number, if it is not already.	+
+
+Arithmetic operators
+Operator	        Description	                                                                            Example
+Remainder (%)	    Binary operator. Returns the integer remainder of dividing the two operands.	        12 % 5 returns 2.
+Increment (++)	    Unary operator. Adds one to its operand. If used as a prefix operator (++x), returns the value of its operand after adding one; if used as a postfix operator (x++), returns the value of its operand before adding one.	If x is 3, then ++x sets x to 4 and returns 4, whereas x++ returns 3 and, only then, sets x to 4.
+Decrement (--)	    Unary operator. Subtracts one from its operand. The return value is analogous to that for the increment operator.	If x is 3, then --x sets x to 2 and returns 2, whereas x-- returns 3 and, only then, sets x to 2.
+Unary negation (-)	Unary operator. Returns the negation of its operand.	If x is 3, then -x returns -3.
+Unary plus (+)	    Unary operator. Attempts to convert the operand to a number, if it is not already.	
++"3" returns 3.
++true returns 1.
+Exponentiation operator (**) 	Calculates the base to the exponent power, that is, baseexponent	2 ** 3 returns 8. 10 ** -1 returns 0.1.
+
+Conditional (ternary) operator
+The conditional operator is the only JavaScript operator that takes three operands. The operator can have one of two values based on a condition. The syntax is:
+condition ? val1 : val2
+
+Comma operator
+The comma operator (,) simply evaluates both of its operands and returns the value of the last operand. This operator is primarily used inside a for loop, to allow multiple variables to be updated each time through the loop.
+
+Unary operators
+A unary operation is an operation with only one operand.
+
+delete
+The delete operator deletes an object, an object's property, or an element at a specified index in an array. The syntax is:
+delete objectName;
+delete objectName.property;
+delete objectName[index];
+delete property; // legal only within a with statement
+x = 42;
+var y = 43;
+myobj = new Number();
+myobj.h = 4;    // create property h
+delete x;       // returns true (can delete if declared implicitly)
+delete y;       // returns false (cannot delete if declared with var)
+delete Math.PI; // returns false (cannot delete predefined properties)
+delete myobj.h; // returns true (can delete user-defined properties)
+delete myobj;   // returns true (can delete if declared implicitly)
+
+
+String Operators
+'', "" or ``
+const defaultResult =0;
+console.log(`(${defaultResult} + 10)`); //will output (0 + 10)
+
+=======================================================================================================================================================================
+Data Types
+Numbers : 2,-3,22.956
+Strings: 'Hi', "Hi", `Hi` (Back ticks)
+
+
+
+
+
+
+
+
+
+
