@@ -48,7 +48,7 @@ console.log('Tagged template output : ' + output);
 // That Mike is a youngster
 
 
-//===========================================Tag functions don't need to return a string, as shown in the following example.===========================================
+//====================Tag functions don't need to return a string, as shown in the following example.==============================
 function template(strings, ...keys) {
   return (function(...values) {
     var dict = values[values.length - 1] || {};
