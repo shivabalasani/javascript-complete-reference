@@ -6,7 +6,7 @@ console.log(`\`` === '`') // --> true
 console.log(`string text line 1
 string text line 2`); 
 
-//===========================================Expression interpolation===========================================
+//===========================================Expression interpolation=====================================
 let a = 5;
 let b = 10;
 console.log(`Expression interpolation output : ` + `Fifteen is ${a + b} and
@@ -19,7 +19,7 @@ const classes = `header ${ false ? '' :
  console.log('Nesting Template output : ' + classes);
 
 
- //==========================================Tagged templates===========================================
+ //==========================================Tagged templates===========================================-=
 var person = 'Mike';
 var age = 28;
 function myTag(strings, personExp, ageExp) {
