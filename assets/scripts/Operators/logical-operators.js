@@ -13,6 +13,8 @@ var a4 = false && (3 == 4); // f && f returns false
 var a5 = 'Cat' && 'Dog';    // t && t returns Dog
 var a6 = false && 'Cat';    // f && t returns false
 var a7 = 'Cat' && false;    // t && f returns false
+var a8 = null && ['Books']  // returns null
+var a9 = true && ''         // return ''
 
 var o1 =  true || true;     // t || t returns true
 var o2 = false || true;     // f || t returns true
@@ -36,5 +38,18 @@ The rules of logic guarantee that these evaluations are always correct. Note tha
 evaluated, so any side effects of doing so do not take effect.
 */
 
+/*
+Double NOT (!!) or Double Bang
+It is possible to use a couple of NOT operators in series to explicitly force the conversion of any value to the corresponding boolean primitive. 
+The conversion is based on the "truthyness" or "falsyness" of the value
+*/
 
+n1 = !!true                   // !!truthy returns true
+n2 = !!{}                     // !!truthy returns true: any object is truthy...
+n3 = !!(new Boolean(false))   // ...even Boolean objects with a false .valueOf()!
+n4 = !!false                  // !!falsy returns false
+n5 = !!""                     // !!falsy returns false
+n6 = !!Boolean(false)         // !!falsy returns false
+
+console.log(n3)
 
