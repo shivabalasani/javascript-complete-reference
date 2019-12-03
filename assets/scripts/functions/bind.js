@@ -21,4 +21,7 @@ let c2_func = printCoordinates.bind(c2)
 c1_func();
 c2_func();
 
-printCoordinates(); //Calling function without binding will bind to window
+printCoordinates(); //Calling function without binding will bind to window. output undefined , undefined
+//window.x=1;
+//window.y=2;
+//printCoordinates(); // output 1 , 2
