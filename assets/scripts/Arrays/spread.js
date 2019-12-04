@@ -122,3 +122,19 @@ console.log(persons, copiedPersonsWithoutReferences);
   { name: 'Anna', age: 29 }
 ]
 */
+
+const person = { name: "Max", hobbies:['Biking','Cooking'], age: 30 };
+const copiedPerson = {...person}
+person.age = 99;  // This will not change copiedPerson
+person.hobbies.push('Coding'); //This will change copiedPerson because Arrays are Objects with reference 
+console.log(person, copiedPerson);//{ name: 'Max', hobbies: [ 'Biking', 'Cooking', 'Coding' ], age: 99 } { name: 'Max', hobbies: [ 'Biking', 'Cooking', 'Coding' ], age: 30}
+
+//If we want to do a deep copy 
+const person3 = {...person, age:29, hobbies: [...person.hobbies]};
+person.age = 40
+person.hobbies.push('Movies'); // This will not change person3 because we did a deep copy
+console.log(person, person3); /*{
+                                    name: 'Max',
+                                    hobbies: [ 'Biking', 'Cooking', 'Coding', 'Movies' ],
+                                    age: 40
+                                  } { name: 'Max', hobbies: [ 'Biking', 'Cooking', 'Coding' ], age: 29 } */

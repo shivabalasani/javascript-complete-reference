@@ -10,9 +10,9 @@ const arr = new Array('Hi');
 
 const arr = Array.of(1);
 const arr = Array.of('Hi');
-const arr = Array.from('Hi');
 
 const arr = Array.from(1);
+const arr = Array.from('Hi');
 */
 
 
