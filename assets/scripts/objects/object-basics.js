@@ -137,3 +137,12 @@ Symbol
 
 const numbers = {5: 'hi', 1: 'true'};
 console.log(numbers); //{ '1': 'true', '5': 'hi' } nummbers will be sorted but if strings are used then the insertion order is kept
+
+
+//Check if a property is present in an object.
+if('first name' in person){
+  console.log('first name is a property of person object');
+}
+if(!(person.age === undefined)){
+  console.log('age is a property of person object');
+}
