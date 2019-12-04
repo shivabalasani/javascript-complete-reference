@@ -138,3 +138,55 @@ drawChart({
 
 drawChart({}); //big { x: 0, y: 0 } 25
 drawChart(); //Throws TypeError: Cannot destructure property `size` of 'undefined' or 'null'   if '= {}' is not present in the function 
+
+
+//Computed object property names and destructuring. Computed property names, like on object literals, can be used with destructuring.
+let key = 'z';
+let {[key]: foo2} = {z: 'bar'};
+console.log(foo2); // "bar"
+
+//Rest in Object Destructuring
+var {a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40};
+console.log(rest); //{ c: 30, d: 40 }
+
+
+//Combined Array and Object Destructuring
+//Array and Object destructuring can be combined. Say you want the third element in the array props below, and then you want the
+// name property in the object, you can do the following:
+const props = [
+  { id: 1, name: 'Fizz'},
+  { id: 2, name: 'Buzz'},
+  { id: 3, name: 'FizzBuzz'}
+];
+const [,, { name }] = props;
+console.log(name); // "FizzBuzz"
+
+
+//For of iteration and destructuring
+const people = [
+  {
+    name: 'Mike Smith',
+    family: {
+      mother: 'Jane Smith',
+      father: 'Harry Smith',
+      sister: 'Samantha Smith'
+    },
+    age: 35
+  },
+  {
+    name: 'Tom Jones',
+    family: {
+      mother: 'Norah Jones',
+      father: 'Richard Jones',
+      brother: 'Howard Jones'
+    },
+    age: 25
+  }
+];
+
+for (const {name: n, family: {father: f}} of people) {
+  console.log('Name: ' + n + ', Father: ' + f);
+}
+
+// "Name: Mike Smith, Father: Harry Smith"
+// "Name: Tom Jones, Father: Richard Jones"
