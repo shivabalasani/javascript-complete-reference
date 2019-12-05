@@ -120,6 +120,7 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
+  //Add # before the property to make this private
   products = [];
 
   constructor(renderHookId) {

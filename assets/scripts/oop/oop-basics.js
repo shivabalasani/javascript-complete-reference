@@ -8,19 +8,20 @@ Objects                                                                 Classes
 
 class Product {
   title = "DEFAULT";
-  imageUrl;            //These are (Public) Class Fields
+  imageUrl; //These are (Public) Class Fields
   description;
   price;
 
   constructor(title, image, desc, price) {
     this.title = title;
     this.imageUrl = image;
-    this.description = desc;  //These are (Public) Class Properties
+    this.description = desc; //These are (Public) Class Properties
     this.price = price;
   }
 
-  printInfo() { // This is (Public) Class Method
-      console.log(this.title, this.description); 
+  printInfo() {
+    // This is (Public) Class Method
+    console.log(this.title, this.description);
   }
 }
 
@@ -45,3 +46,40 @@ without instantiation (i.e. not on instance)
 global configuration etc.
 */
 
+const obj = new Object(); //Same as const obj = {};
+console.log(obj); // outputs {}
+
+const person = {
+  name: "Max",
+  greet() {
+    console.log(this.name);
+  }
+};
+
+console.log(Object.getOwnPropertyDescriptors(person));
+/*{
+  name: {
+    value: 'Max',
+    writable: true,
+    enumerable: true,  //can iterate 
+    configurable: true //can be deleted
+  },
+  greet: {
+    value: [Function: greet],
+    writable: true,
+    enumerable: true,
+    configurable: true
+  }
+}*/
+Object.defineProperty(person, "name", {
+  configurable: false,
+  enumerable: false,
+  value: person.name,
+  writable: false
+});
+person.name = 'Maxxxxxx';
+delete person.name; //Does not delete since configurable is set to false
+for(const key in person){
+  console.log('----------'+key +'----------');  //Outputs only greet because we set enumerable to false on name
+}
+console.log(person.name); // Output Max since we set writable to false
