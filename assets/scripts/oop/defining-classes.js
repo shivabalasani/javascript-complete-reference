@@ -86,3 +86,78 @@ p1.distance; //undefined
 p2.distance; //undefined
 
 console.log(Point.distance(p1, p2)); // 7.0710678118654755
+console.log();
+
+//==================================================================================================================================================================
+//Boxing with prototype and static methods
+//When a static or prototype method is called without a value for this, the this value will be undefined inside the method. This behavior will be the same even if the 
+//"use strict" directive isn't present, because code within the class body's syntactic boundary is always executed in strict mode.
+
+class Animals { 
+  speaks() {
+    return this;
+  }
+  static eats() {
+    return this;
+  }
+}
+
+let objs = new Animals();
+console.log(objs.speaks()); // Animals {}
+let speaks = objs.speaks;
+console.log(speaks()); // undefined
+
+console.log(Animals.eats()); // class Animals
+let eats = Animals.eats;
+console.log(eats()); // undefined
+console.log();
+
+//==================================================================================================================================================================
+//Autoboxing will not happen in strict mode, the this value remains as passed.
+
+function Animal() { }
+
+Animal.prototype.speak = function() {
+  return this;
+}
+
+Animal.eat = function() {
+  return this;
+}
+
+let obj = new Animal();
+let speak = obj.speak;
+console.log(speak()); // global object
+
+let eat = Animal.eat;
+console.log(eat()); // global object
+
+
+//==================================================================================================================================================================
+/*
+class Rectangle {
+  constructor(height, width) {    
+    this.height = height;
+    this.width = width;
+  }
+}*/
+//Public field declarations : With the JavaScript field declaration syntax, the above example can be written as:
+class Rectangle {
+  height = 0;
+  width;
+  constructor(height, width) {    
+    this.height = height;
+    this.width = width;
+  }
+}
+
+//Private field declarations : Using private fields, the definition can be refined as below.
+/*
+class Rectangle {
+  #height = 0; //Not yet supported in IDE and some browsers
+  #width;
+  constructor(height, width) {    
+    this.#height = height;
+    this.#width = width;
+  }
+}*/
