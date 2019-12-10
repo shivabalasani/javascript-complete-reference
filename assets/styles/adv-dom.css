@@ -91,6 +91,10 @@
     background: white;
   }
   
+  .droppable {
+    background: #EBF5FB;
+  }
+  
   #active-projects {
     border: 1px solid #870099;
   }
