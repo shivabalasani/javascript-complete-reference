@@ -25,10 +25,12 @@ async function asyncCall() {
 }
 
 asyncCall();
-/*An async function can contain an await expression that pauses the execution of the async function to wait for the passed Promise's resolution, then resumes the async 
-function's execution and evaluates as the resolved value.
+console.log('This is not blocked');
+/*An async function can contain an await expression that pauses the execution of the async function to wait for the passed Promise's 
+resolution, then resumes the async function's execution and evaluates as the resolved value.
 
 The await keyword is only valid inside async functions. If you use it outside of an async function's body, you will get a SyntaxError.
 
-While the async function is paused, the calling function continues running (having received the implicit Promise returned by the async function).*/
+While the async function is paused, the calling function continues running (having received the implicit Promise returned by the async 
+function).*/
 
