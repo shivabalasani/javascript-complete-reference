@@ -1,4 +1,4 @@
-import { DOMHelper } from '../Utility/DOMHelper.js';
+import { DOMHelper } from './Utility/DOMHelper.js';
 // import { Tooltip } from './Tooltip.js';
 
 console.log('Project Item created!');
