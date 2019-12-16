@@ -24,3 +24,9 @@ console.log(person1 == person2); //false
 console.log(person1 === person2); //false
 let person3 = person1
 console.log(person1 === person3); //true
+
+console.log("3" == 3 ); //true
+console.log(false == 0 ); //true
+
+console.log(null == 0 ); //false - null won't be coerced to 0
+console.log(null < 1); //true - here null will be coerced to 0

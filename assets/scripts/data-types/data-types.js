@@ -15,7 +15,7 @@ Seven data types that are primitives:
     Boolean
     Null
     Undefined
-    Number
+    Number - Floating point number( there's always some decimal)
     BigInt
     String
     Symbol
