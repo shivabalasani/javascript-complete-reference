@@ -5,6 +5,11 @@
 //promise, respectively. The executor normally initiates some asynchronous work, and then, once that completes, either calls the resolve function to resolve the promise or
 //else rejects it if an error occurred. If an error is thrown in the executor function, the promise is rejected. The return value of the executor is ignored.
 
+//                            fulfilled
+//                          /
+//  Promise  -- pending -> 
+//                          \
+//                            rejected
 var promise1 = new Promise(function(resolve, reject) {
   setTimeout(function() {
     resolve("foo");
