@@ -43,5 +43,22 @@ const arrFrom2 = Array.from('Hi!'); // Output (3) ["H", "i", "!"]
     <li>Item3</li>
 </ul>
 */
-const listItem = document.querySelectorAll('li'); //NodeList(3) [li, li, li]
-const arrFromNodeList = Array.from(listItems); // Converts Array-like NodeList to Array. (3) [li, li, li]
+//const listItem = document.querySelectorAll('li'); //NodeList(3) [li, li, li]
+//const arrFromNodeList = Array.from(listItems); // Converts Array-like NodeList to Array. (3) [li, li, li]
+
+
+var arr = [
+    1,
+    false,
+    {
+        name: 'Tony',
+        address: '111 Main St'
+    },
+    function(name) {
+        var greeting = 'Hello ';
+        console.log(greeting + name);
+    },
+    "hello"
+];
+console.log(arr); //[1, false, Object, function, "hello"]
+arr[3](arr[2].name); //Hello Tony

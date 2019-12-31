@@ -4,12 +4,12 @@ IIFEs are very useful because they don’t pollute the global object, and they a
 //This is the syntax that defines an IIFE:
 (function() {
   /* */
-})()
+})();
 
 //IIFEs can be defined with arrow functions as well:
 (() => {
   /* */
-})()
+})();
 
 //function() {} //SyntaxError: Function statements require a function name
 (function() {})();
@@ -24,4 +24,19 @@ IIFEs are very useful because they don’t pollute the global object, and they a
 //does not “leak” to the global scope, and it cannot be invoked again after its execution:
 (function doSomething() {
   /* */
-})()
+})();
+
+
+//function(name) { return 'Hello'} //Uncaught SysntaxError; Unexpected token(
+(function(name) { return 'Hello'})  //Change above to expression
+(function(name) {
+  var greeting = 'Hello ';
+  console.log(greeting + name);
+}('Jai'));  //IIFE
+
+(function(global, name) {
+  var greeting = 'Hello ';
+  global.greeting = 'Hello';
+  console.log(greeting + name);
+}(globalThis, 'Jai'));  //IIFE
+console.log(greeting); //Hello

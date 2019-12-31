@@ -9,8 +9,11 @@ function multiply(x, y) {
    return x * y;
 } // there is no semicolon here
 
-//A function expression of an anonymous function assigned to the variable multiply:
-var multiply = function(x, y) {
+
+//anonymousFunctionExpression(1,2); TypeError: anonymousFunctionExpression(undefined) is not a function
+//Cannot be invoked before initalizing anonymous function expression
+//A function expression of an anonymous function assigned to the variable anonymousFunctionExpression:
+var anonymousFunctionExpression = function(x, y) {
    return x * y;
 };
 
@@ -18,3 +21,14 @@ var multiply = function(x, y) {
 var multiply = function func_name(x, y) {
    return x * y;
 };
+
+
+//Functions in javascript are objects and can be passed as arguments.
+function log(a) {
+   console.log(a);  //outputs function(){console.log('hi)}
+   a(); //outputs 'hi'
+}
+
+log(function() {
+   console.log('hi')
+});

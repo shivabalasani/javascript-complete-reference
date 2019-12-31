@@ -5,10 +5,15 @@ time the function is called. ES5 introduced the bind() method to set the value o
 which don't provide their own this binding (it retains the this value of the enclosing lexical context).
 Syntax this :A property of an execution context (global, function or eval) that, in non–strict mode, is always a reference to an object and in strict mode can be any value.*/
 
+var anonymousFunction = function() {
+  console.log(this); // this does not belong in any object so it points to global Window object
+}
+anonymousFunction();
+
 var test = {
   prop: 42,
   func: function() {
-    return this.prop;
+    return this.prop; //this points to the object that it belongs to which is the test object 
   }
 };
 console.log(test.func()); // expected output: 42
@@ -151,3 +156,38 @@ var fn2 = obj.bar;
 //always be what it was set to initially. In the above code example, function B's this is set to function A's this which is obj, so it remains set to obj even when called 
 //in a manner that would normally set its this to undefined or the global object (or any other method as in the previous example in the global execution context).
 //=====================================================================================================================================================================
+
+
+
+//Gotcha
+var c = {
+  name: 'The c object',
+  log: function() {
+    this.name = 'Updated c Objct'; //this refers to object c
+    console.log(this); //{ name: 'Updated c Objct', log: [Function: log] }
+
+    var setname = function(newname) {
+      this.name = newname; //here this will not refer to the object it is enclosed in but it will point to global window object
+    }
+    setname('Updated again! The c object');
+    console.log(this); //{ name: 'Updated c Objct', log: [Function: log] }
+  }
+}
+c.log();
+
+//use below pattern to avoid unintentional behaviour
+var c1 = {
+  name: 'The c object',
+  log: function() {
+    var self = this;
+    self.name = 'Updated c Objct';
+    console.log(self); //{ name: 'Updated c Objct', log: [Function: log] }
+
+    var setname = function(newname) {
+      self.name = newname;
+    }
+    setname('Updated again! The c object');
+    console.log(self); //{ name: 'Updated again! The c object', log: [Function: log] }
+  }
+}
+c1.log()
