@@ -1,9 +1,18 @@
-/*A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.
+/*
+'this' is the object that the function is a property of.
 
-In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each 
-time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions 
-which don't provide their own this binding (it retains the this value of the enclosing lexical context).
-Syntax this :A property of an execution context (global, function or eval) that, in non–strict mode, is always a reference to an object and in strict mode can be any value.*/
+this == 'who called me'. this is dynamic scoped by default, to make its scope lexical use bind or arrow functionns.
+
+A function's this keyword behaves a little differently in JavaScript compared to other languages. 
+It also has some differences between strict mode and non-strict mode.
+
+In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during 
+execution, and it may be different each  time the function is called. ES5 introduced the bind() method to set the value of a 
+function's this regardless of how it's called, and ES2015 introduced arrow functions  which don't provide their own this binding 
+(it retains the this value of the enclosing lexical context).
+Syntax this :A property of an execution context (global, function or eval) that, in non–strict mode, is always a reference to an 
+object and in strict mode can be any value.
+*/
 
 var anonymousFunction = function() {
   console.log(this); // this does not belong in any object so it points to global Window object
@@ -191,3 +200,28 @@ var c1 = {
   }
 }
 c1.log()
+
+
+//===========================================================================================
+//JS is weird:
+const obj = {
+  name: 'Billy',
+  sing: function() {
+    console.log(this) // in this case, it's a method on an object.
+    var anotherFunc = function() {
+      console.log(this)// this points to windows!
+    }
+  }
+}
+//To fix above issue
+const obj = {
+  name: 'Billy',
+  sing: function() {
+    console.log(this) // in this case, it's a method on an object.
+    //var self = this //alternative approach is assign this to self and use self instead
+    var anotherFunc = function() {
+      console.log(this)// this points to windows!
+    }
+    anotherFunc.bind(this); //bind this to point to obj instead of windows.
+  }
+}
