@@ -24,3 +24,12 @@ const getData = async function() {
         console.log('error', err)
     }
 }
+
+//Same output using for-await-of. New feature in ES9 (ES2018)
+const getData2 = async function() {
+    const arrayOfPromises = urls.map(url => fetch(url));
+    for await(let request of arrayOfPromises) {
+        const data = await request.json();
+        console.log(data);
+    }
+}
