@@ -27,3 +27,28 @@ function dump_props(obj, obj_name) {
       model: 'Mustang'
   }
   console.log(dump_props(car,'car'));
+
+
+  const  basket = ['apples','oranges','grapes']
+  const detailedBasket = {
+    apples: 5,
+    oranges: 10,
+    grapes: 1000
+  }
+  // Iterating - arrays, strings
+  for(item of basket) {
+    console.log(item); //apples oranges grapes
+  }
+  //for(item of detailedBasket) { //detailedBasket is not iterable
+    //console.log(item); 
+  //}
+
+  // for in - properties
+  // enumerating - objects
+  for(item in detailedBasket){
+    console.log(item); //apples oranges grapes
+  }
+
+  for(item in bakset){
+    console.log(item);  //0 1 2
+  }
