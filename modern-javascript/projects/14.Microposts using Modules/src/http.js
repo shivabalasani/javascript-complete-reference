@@ -3,8 +3,7 @@
  * Library for making HTTP requests
  *
  * @version 3.0.0
- * @author  shiva Balasani
- * @license MIT
+ * @author  Shiva Balasani
  *
  **/
 
